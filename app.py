@@ -73,7 +73,7 @@ analise = [['IN_AGUA_REDE_PUBLICA','ESCOLAS SEM AGUA REDE PUBLICA'],
            ['IN_ALMOXARIFADO','ESCOLAS SEM ALMOXARIFADO'],
            ['IN_BANHEIRO_PNE','ESCOLAS SEM BANHEIRO PNE']]
 
-st.title("Censo Escolar - Análise Exploratória")
+st.title("Análise Exploratória de Dados Educacionais")
 st.markdown('Fonte: INEP')
 
 op = []
@@ -93,6 +93,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
