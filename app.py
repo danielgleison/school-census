@@ -85,21 +85,24 @@ st.title("Análise Exploratória de Dados Educacionais")
 st.markdown('Fonte: INEP')
 
 op = []
-for i in range(0,len(analise)-1):
-    op.append(analise[i][1])
 
+#for i in range(0,len(analise)-1):
+for i in range(len(analise)):
+    op.append(analise[i][1])
+    
 tp_analise = st.selectbox("Selecione a análise:",op)
 
-for i in range(0,len(analise)-1):
+#for i in range(0,len(analise)-1):
+for i in range(len(analise)):
     if tp_analise == analise[i][1]:
-        relatorio(FI_ANO,analise[i][0],analise[i][1],i+1)
-
+        relatorio(FI_ANO,analise[i][0],analise[i][1],i + 1)
 
 st.sidebar.markdown('---')
 st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
