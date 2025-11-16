@@ -47,13 +47,13 @@ In5 =  st.sidebar.selectbox("SITUAÇÃO:",["EM ATIVIDADE"])
 # criando um dataframe
 ds, df = get_data(FI_ANO)
 
-def get_download(df, arq):
+#def get_download(df, arq):
     
-    csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="'+arq+'.csv">Download</a>'
+    #csv = df.to_csv(index=False)
+    #b64 = base64.b64encode(csv.encode()).decode()
+    #href = f'<a href="data:file/csv;base64,{b64}" download="'+arq+'.csv">Download</a>'
   
-    return href
+    #return href
 
 def relatorio(ano,variavel, nome, botao):
     #st.write(nome)
@@ -61,8 +61,16 @@ def relatorio(ano,variavel, nome, botao):
     st.table(df_rel)
     st.write('**Total**:',df_rel['NO_ENTIDADE'].count(),'de',df['NO_ENTIDADE'].count(),'(',round(df_rel['NO_ENTIDADE'].count()/df['NO_ENTIDADE'].count()*100,2),'%)')       
     
-    if st.button("Exportar CSV",botao):
-        st.markdown(get_download(df_rel, nome), unsafe_allow_html=True)   
+    #if st.button("Exportar CSV",botao):
+        #st.markdown(get_download(df_rel, nome), unsafe_allow_html=True)
+
+    # Download seguro com Streamlit
+    st.download_button(
+        label="Exportar CSV",
+        data=df_rel.to_csv(index=False),
+        file_name=f"{nome}.csv",
+        mime="text/csv"
+    )
 
 analise = [['IN_AGUA_REDE_PUBLICA','ESCOLAS SEM AGUA REDE PUBLICA'],
            ['IN_ESGOTO_REDE_PUBLICA','ESCOLAS SEM ESGOTO REDE PUBLICA'],
@@ -83,6 +91,7 @@ for i in range(0,len(analise)-1):
 tp_analise = st.selectbox("Selecione a análise:",op)
 
 for i in range(0,len(analise)-1):
+for i in range(len(analise)):
     
     if tp_analise == analise[i][1]:
         relatorio(FI_ANO,analise[i][0],analise[i][1],i+1)
@@ -93,6 +102,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
