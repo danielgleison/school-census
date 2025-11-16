@@ -88,13 +88,11 @@ for i in range(0,len(analise)-1):
 
 st.sidebar.markdown('---')
 st.sidebar.markdown('**Lívia Julyana G. V. Lira **')
-st.sidebar.markdown('Doutorado em Educação')
-st.sidebar.markdown('Universidade Estadual do Ceará')
-st.sidebar.markdown('mailto:livia.lira@aluno.uece.br')
+st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira**')
-st.sidebar.markdown('Mestrado em Ciências da Computação')
-st.sidebar.markdown('Universidade Estadual do Ceará')
-st.sidebar.markdown('mailto:daniel.gleison@aluno.uece.br')
+st.sidebar.markdown('Mestre em Ciência da Computação')
+
+
 
 
 
