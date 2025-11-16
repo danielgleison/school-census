@@ -3,10 +3,7 @@ import streamlit as st
 
 # Função para carregar o dataset
 @st.cache_data
-def get_data(FI_ANO,CO_MUNICIPIO):
-    #CO_MUNICIPIO = 2307650
-    TP_DEPENDENCIA = 3  # Municipal
-    TP_SITUACAO = 1     # Em atividade
+def get_data(FI_ANO,CO_MUNICIPIO,TP_DEPENDENCIA,TP_SITUACAO):  
 
     ds = pd.read_csv(f'Dados/{FI_ANO}/ESCOLAS_MARACANAU.CSV', sep=',', encoding='latin1')
     df = ds[(ds['CO_MUNICIPIO'] == CO_MUNICIPIO) & (ds['TP_DEPENDENCIA'] == TP_DEPENDENCIA) & (ds['TP_SITUACAO_FUNCIONAMENTO'] == TP_SITUACAO)]
@@ -29,6 +26,9 @@ NM_MUNICIPIO = st.sidebar.selectbox("MUNICÍPIO:", ["MARACANAÚ"])
 if NM_MUNICIPIO == "MARACANAÚ": 
 
     CO_MUNICIPIO = 2307650
+    TP_DEPENDENCIA = 3  # Municipal
+    TP_SITUACAO = 1     # Em atividade
+    
     FI_BASE = st.sidebar.selectbox("BASE:", ['CENSO ESCOLAR','IDEB','ANA','SPAECE'])
 
     if FI_BASE == 'CENSO ESCOLAR':
@@ -42,7 +42,7 @@ if NM_MUNICIPIO == "MARACANAÚ":
             
         
             # Carregar dados
-            ds, df = get_data(FI_ANO,CO_MUNICIPIO)
+            ds, df = get_data(FI_ANO,CO_MUNICIPIO,TP_DEPENDENCIA,TP_SITUACAO)
             
             # Função para relatório
             def relatorio(ano, variavel, nome, botao):
@@ -95,6 +95,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
