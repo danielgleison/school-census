@@ -24,7 +24,6 @@ def get_data(FI_ANO):
 st.sidebar.subheader("Filtros")
 FI_BASE = st.sidebar.selectbox("BASE:", ['CENSO ESCOLAR','IDEB','ANA','SPAECE'])
 
-
 analise = []
 fonte = ''
 
@@ -89,6 +88,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
