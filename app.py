@@ -90,7 +90,7 @@ for i in range(0,len(analise)-1):
 
 tp_analise = st.selectbox("Selecione a análise:",op)
 
-for i in range(0,len(analise)-1):
+#for i in range(0,len(analise)-1):
 for i in range(len(analise)):
     
     if tp_analise == analise[i][1]:
@@ -102,6 +102,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
