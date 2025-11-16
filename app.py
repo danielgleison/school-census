@@ -32,7 +32,7 @@ if FI_BASE == 'CENSO ESCOLAR':
     #FI_DIMENSAO = st.sidebar.selectbox("DIMENSÃO:", ['INFRAESTRUTURA','RAÇA','NÍVEL SÓCIO-ECONÔMICO','COMPLEXIDADE DA GESTÃO','DISTORÇAO SÉRIE-IDADE','APROVAÇÃO','REPROVAÇÃO','TAXA DE PARTICIPAÇÃO'])
     FI_DIMENSAO = st.sidebar.selectbox("DIMENSÃO:", ['INFRAESTRUTURA','RAÇA','NÍVEL SÓCIO-ECONÔMICO','COMPLEXIDADE DA GESTÃO'])
 
-    if FI_BASE == 'INFRAESTRUTURA':
+    if FI_DIMENSAO == 'INFRAESTRUTURA':
     
         FI_ANO = st.sidebar.selectbox("ANO:", ['2020','2019','2018','2017','2016','2015'])
         NM_MUNICIPIO = st.sidebar.selectbox("MUNICÍPIO:", ["MARACANAU"])
@@ -91,6 +91,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
