@@ -28,7 +28,7 @@ FI_ANO = st.sidebar.selectbox("ANO:", ['2020','2019','2018','2017','2016','2015'
 NM_MUNICIPIO = st.sidebar.selectbox("MUNICÍPIO:", ["MARACANAU"])
 
 analise = []
-fonte = {}
+fonte = ''
 
 if FI_BASE == 'CENSO ESCOLAR':
 
@@ -65,7 +65,7 @@ if FI_BASE == 'CENSO ESCOLAR':
 
 # Interface principal
 st.title("Análise Exploratória de Dados Educacionais")
-st.markdown('Fonte: ', fonte)
+st.markdown('Fonte: ', {fonte})
 
 # Criando lista de opções
 op = []
@@ -86,6 +86,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
