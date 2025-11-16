@@ -4,7 +4,7 @@ import streamlit as st
 # Função para carregar o dataset
 @st.cache_data
 def get_data(FI_ANO):
-    CO_MUNICIPIO = 2307650
+    #CO_MUNICIPIO = 2307650
     TP_DEPENDENCIA = 3  # Municipal
     TP_SITUACAO = 1     # Em atividade
 
@@ -24,10 +24,11 @@ def get_data(FI_ANO):
 st.sidebar.subheader("Filtros")
 analise = []
 fonte = ''
-NM_MUNICIPIO = st.sidebar.selectbox("MUNICÍPIO:", ["MARACANAU"])
+NM_MUNICIPIO = st.sidebar.selectbox("MUNICÍPIO:", ["MARACANAÚ"])
 
-if NM_MUNICIPIO == "MARACANAU": 
-    
+if NM_MUNICIPIO == "MARACANAÚ": 
+
+    CO_MUNICIPIO = 2307650
     FI_BASE = st.sidebar.selectbox("BASE:", ['CENSO ESCOLAR','IDEB','ANA','SPAECE'])
 
     if FI_BASE == 'CENSO ESCOLAR':
@@ -41,7 +42,7 @@ if NM_MUNICIPIO == "MARACANAU":
             
         
             # Carregar dados
-            ds, df = get_data(FI_ANO)
+            ds, df = get_data(FI_ANO,CO_MUNICIPIO)
             
             # Função para relatório
             def relatorio(ano, variavel, nome, botao):
@@ -94,6 +95,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
