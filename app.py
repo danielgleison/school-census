@@ -30,46 +30,46 @@ if NM_MUNICIPIO == "MARACANAU":
     
     FI_BASE = st.sidebar.selectbox("BASE:", ['CENSO ESCOLAR','IDEB','ANA','SPAECE'])
 
-        if FI_BASE == 'CENSO ESCOLAR':
+    if FI_BASE == 'CENSO ESCOLAR':
+    
+        #FI_DIMENSAO = st.sidebar.selectbox("DIMENSÃO:", ['INFRAESTRUTURA','RAÇA','NÍVEL SÓCIO-ECONÔMICO','COMPLEXIDADE DA GESTÃO','DISTORÇAO SÉRIE-IDADE','APROVAÇÃO','REPROVAÇÃO','TAXA DE PARTICIPAÇÃO'])
+        FI_DIMENSAO = st.sidebar.selectbox("DIMENSÃO:", ['INFRAESTRUTURA','RAÇA','NÍVEL SÓCIO-ECONÔMICO','COMPLEXIDADE DA GESTÃO'])
+    
+        if FI_DIMENSAO == 'INFRAESTRUTURA':
         
-            #FI_DIMENSAO = st.sidebar.selectbox("DIMENSÃO:", ['INFRAESTRUTURA','RAÇA','NÍVEL SÓCIO-ECONÔMICO','COMPLEXIDADE DA GESTÃO','DISTORÇAO SÉRIE-IDADE','APROVAÇÃO','REPROVAÇÃO','TAXA DE PARTICIPAÇÃO'])
-            FI_DIMENSAO = st.sidebar.selectbox("DIMENSÃO:", ['INFRAESTRUTURA','RAÇA','NÍVEL SÓCIO-ECONÔMICO','COMPLEXIDADE DA GESTÃO'])
+            FI_ANO = st.sidebar.selectbox("ANO:", ['2020','2019','2018','2017','2016','2015'])
+            
         
-            if FI_DIMENSAO == 'INFRAESTRUTURA':
+            # Carregar dados
+            ds, df = get_data(FI_ANO)
             
-                FI_ANO = st.sidebar.selectbox("ANO:", ['2020','2019','2018','2017','2016','2015'])
-                
+            # Função para relatório
+            def relatorio(ano, variavel, nome, botao):
+                df_rel = df[df[variavel] != 1][['NU_ANO_CENSO','CO_MUNICIPIO','NO_ENTIDADE','TP_LOCALIZACAO','TP_OCUPACAO_PREDIO_ESCOLAR']]
+                st.table(df_rel)
+                st.write(f"**Total**: {df_rel['NO_ENTIDADE'].count()} de {df['NO_ENTIDADE'].count()} ({round(df_rel['NO_ENTIDADE'].count()/df['NO_ENTIDADE'].count()*100,2)}%)")
             
-                # Carregar dados
-                ds, df = get_data(FI_ANO)
-                
-                # Função para relatório
-                def relatorio(ano, variavel, nome, botao):
-                    df_rel = df[df[variavel] != 1][['NU_ANO_CENSO','CO_MUNICIPIO','NO_ENTIDADE','TP_LOCALIZACAO','TP_OCUPACAO_PREDIO_ESCOLAR']]
-                    st.table(df_rel)
-                    st.write(f"**Total**: {df_rel['NO_ENTIDADE'].count()} de {df['NO_ENTIDADE'].count()} ({round(df_rel['NO_ENTIDADE'].count()/df['NO_ENTIDADE'].count()*100,2)}%)")
-                
-                    # Download seguro com Streamlit
-                    st.download_button(
-                        label="Exportar CSV",
-                        data=df_rel.to_csv(index=False),
-                        file_name=f"{nome}.csv",
-                        mime="text/csv"
-                    )
-                
-                # Lista de análises
-                analise = [
-                    ['IN_AGUA_REDE_PUBLICA','ESCOLAS SEM AGUA REDE PUBLICA'],
-                    ['IN_ESGOTO_REDE_PUBLICA','ESCOLAS SEM ESGOTO REDE PUBLICA'],
-                    ['IN_ESGOTO_FOSSA','ESCOLAS COM ESGOTO FOSSA'],
-                    ['IN_LABORATORIO_CIENCIAS','ESCOLAS COM LABORATÓRIO DE CIÊNCIAS'],
-                    ['IN_LABORATORIO_INFORMATICA','ESCOLAS SEM LABORATÓRIO DE CIÊNCIAS'],
-                    ['IN_AUDITORIO','ESCOLAS COM AUDITORIO'],
-                    ['IN_ALMOXARIFADO','ESCOLAS SEM ALMOXARIFADO'],
-                    ['IN_BANHEIRO_PNE','ESCOLAS SEM BANHEIRO PNE']
-                ]
+                # Download seguro com Streamlit
+                st.download_button(
+                    label="Exportar CSV",
+                    data=df_rel.to_csv(index=False),
+                    file_name=f"{nome}.csv",
+                    mime="text/csv"
+                )
             
-                fonte = "INEP"
+            # Lista de análises
+            analise = [
+                ['IN_AGUA_REDE_PUBLICA','ESCOLAS SEM AGUA REDE PUBLICA'],
+                ['IN_ESGOTO_REDE_PUBLICA','ESCOLAS SEM ESGOTO REDE PUBLICA'],
+                ['IN_ESGOTO_FOSSA','ESCOLAS COM ESGOTO FOSSA'],
+                ['IN_LABORATORIO_CIENCIAS','ESCOLAS COM LABORATÓRIO DE CIÊNCIAS'],
+                ['IN_LABORATORIO_INFORMATICA','ESCOLAS SEM LABORATÓRIO DE CIÊNCIAS'],
+                ['IN_AUDITORIO','ESCOLAS COM AUDITORIO'],
+                ['IN_ALMOXARIFADO','ESCOLAS SEM ALMOXARIFADO'],
+                ['IN_BANHEIRO_PNE','ESCOLAS SEM BANHEIRO PNE']
+            ]
+        
+            fonte = "INEP"
 
 # Interface principal
 st.title("Análise Exploratória de Dados Educacionais")
@@ -94,6 +94,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
