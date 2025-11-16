@@ -3,7 +3,7 @@ import streamlit as st
 
 # Função para carregar o dataset
 @st.cache_data
-def get_data(FI_ANO):
+def get_data(FI_ANO,CO_MUNICIPIO):
     #CO_MUNICIPIO = 2307650
     TP_DEPENDENCIA = 3  # Municipal
     TP_SITUACAO = 1     # Em atividade
@@ -95,6 +95,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
