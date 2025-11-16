@@ -87,10 +87,11 @@ for i in range(0,len(analise)-1):
 
 
 st.sidebar.markdown('---')
-st.sidebar.markdown('**Lívia Julyana G. V. Lira **')
+st.sidebar.markdown('Lívia Julyana G. V. Lira, Dra.')
 st.sidebar.markdown('Doutora em Educação')
-st.sidebar.markdown('**Daniel Gleison M. Lira**')
+st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
