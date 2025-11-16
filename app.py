@@ -1,4 +1,4 @@
-ytimport pandas as pd
+import pandas as pd
 import streamlit as st
 
 # Função para carregar o dataset
@@ -86,6 +86,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
