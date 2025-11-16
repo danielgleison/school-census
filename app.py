@@ -61,7 +61,7 @@ if FI_BASE == 'CENSO ESCOLAR':
         ['IN_BANHEIRO_PNE','ESCOLAS SEM BANHEIRO PNE']
     ]
 
-    Fonte = "INEP"
+    fonte = "INEP"
 
 # Interface principal
 st.title("Análise Exploratória de Dados Educacionais")
@@ -86,6 +86,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
