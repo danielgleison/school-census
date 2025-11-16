@@ -32,6 +32,8 @@ fonte = ''
 
 if FI_BASE == 'CENSO ESCOLAR':
 
+    FI_DIMENSAO = st.sidebar.selectbox("DIMENSÃO:", ['INFRAESTRUTURA','RAÇA','NÍVEL SÓCIO-ECONÔMICO','COMPLEXIDADE DA GESTÃO'])
+
     # Carregar dados
     ds, df = get_data(FI_ANO)
     
@@ -86,6 +88,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
