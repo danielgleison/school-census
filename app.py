@@ -119,6 +119,7 @@ for i in range(len(analise)):
 
 # Rodapé
 st.sidebar.markdown('---')
+st.sidebar.markdown('Autores')
 st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
