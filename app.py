@@ -5,7 +5,7 @@ import time
 import base64
 
 # função para carregar o dataset
-@st.cache(allow_output_mutation=True)
+@st.cache_data
 def get_data(FI_ANO):
 
     CO_MUNICIPIO = 2307650
@@ -93,6 +93,7 @@ st.sidebar.markdown('**Lívia Julyana G. V. Lira, Dra.**')
 st.sidebar.markdown('Doutora em Educação')
 st.sidebar.markdown('**Daniel Gleison M. Lira, Me.**')
 st.sidebar.markdown('Mestre em Ciência da Computação')
+
 
 
 
