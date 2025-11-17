@@ -68,10 +68,40 @@ def grafico_evolucao(variavel, nome, CO_MUNICIPIO, TP_DEPENDENCIA, TP_SITUACAO):
 
 # Sidebar
 st.sidebar.subheader("Filtros")
-NM_MUNICIPIO = st.sidebar.selectbox("MUNICÍPIO:", ["MARACANAÚ"])
+NM_MUNICIPIO = st.sidebar.selectbox("MUNICÍPIO:", ["MARACANAÚ", "MARANGUAPE"])
 
 if NM_MUNICIPIO == "MARACANAÚ":
     CO_MUNICIPIO = 2307650
+    TP_DEPENDENCIA = 3  # Municipal
+    TP_SITUACAO = 1     # Em atividade
+
+    FI_BASE = st.sidebar.selectbox("BASE:", ['CENSO ESCOLAR', 'IDEB', 'ANA', 'SPAECE'])
+
+    if FI_BASE == 'CENSO ESCOLAR':
+        FI_DIMENSAO = st.sidebar.selectbox("DIMENSÃO:", ['INFRAESTRUTURA', 'RAÇA', 'NÍVEL SÓCIO-ECONÔMICO', 'COMPLEXIDADE DA GESTÃO'])
+
+        if FI_DIMENSAO == 'INFRAESTRUTURA':
+            FI_ANO = st.sidebar.selectbox("ANO:", [str(ano) for ano in range(2024, 2014, -1)])
+
+            # Carregar dados
+            ds, df = get_data(FI_ANO, CO_MUNICIPIO, TP_DEPENDENCIA, TP_SITUACAO)
+
+            # Lista de análises
+            analise = [
+                ['IN_AGUA_REDE_PUBLICA', 'ESCOLAS SEM ÁGUA REDE PÚBLICA'],
+                ['IN_ESGOTO_REDE_PUBLICA', 'ESCOLAS SEM ESGOTO REDE PÚBLICA'],
+                ['IN_ESGOTO_FOSSA', 'ESCOLAS COM ESGOTO FOSSA'],
+                ['IN_LABORATORIO_CIENCIAS', 'ESCOLAS SEM LABORATÓRIO DE CIÊNCIAS'],
+                ['IN_LABORATORIO_INFORMATICA', 'ESCOLAS SEM LABORATÓRIO DE INFORMÁTICA'],
+                ['IN_AUDITORIO', 'ESCOLAS SEM AUDITÓRIO'],
+                ['IN_ALMOXARIFADO', 'ESCOLAS SEM ALMOXARIFADO'],
+                ['IN_BANHEIRO_PNE', 'ESCOLAS SEM BANHEIRO PNE']
+            ]
+
+            fonte = "INEP"
+            
+if NM_MUNICIPIO == "MARANGUAPE":
+    CO_MUNICIPIO = 2307700
     TP_DEPENDENCIA = 3  # Municipal
     TP_SITUACAO = 1     # Em atividade
 
