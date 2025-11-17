@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 # Função para carregar dados de um ano específico
 @st.cache_data
 def get_data(FI_ANO, CO_MUNICIPIO, TP_DEPENDENCIA, TP_SITUACAO):
-    ds = pd.read_csv(f'Dados/{FI_ANO}/ESCOLAS_MARACANAU.CSV', sep=',', encoding='latin1')
+    ds = pd.read_csv(f'Dados/{FI_ANO}/ESCOLAS_{CO_MUNICIPIO}.CSV', sep=',', encoding='latin1')
     df = ds[(ds['CO_MUNICIPIO'] == CO_MUNICIPIO) &
             (ds['TP_DEPENDENCIA'] == TP_DEPENDENCIA) &
             (ds['TP_SITUACAO_FUNCIONAMENTO'] == TP_SITUACAO)]
